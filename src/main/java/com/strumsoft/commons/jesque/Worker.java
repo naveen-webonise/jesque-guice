@@ -1,24 +1,24 @@
 package com.strumsoft.commons.jesque;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import net.greghaines.jesque.Job;
+import net.greghaines.jesque.worker.WorkerEvent;
+import net.greghaines.jesque.worker.WorkerListener;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import net.greghaines.jesque.Job;
-import net.greghaines.jesque.worker.WorkerEvent;
-import net.greghaines.jesque.worker.WorkerListener;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 // TODO: Auto-generated Javadoc
+
 /**
  * Worker Annotation. Must be applied on a Runnable class.
- * 
+ *
  * @author "Animesh Kumar <animesh@strumsoft.com>"
- * 
  */
-@Target({ ElementType.TYPE })
+@Target({ElementType.TYPE})
 @Retention(RUNTIME)
 @Inherited
 public @interface Worker {
@@ -32,7 +32,7 @@ public @interface Worker {
 
     /**
      * Queue names that this worker will listen to.
-     * 
+     *
      * @return the string[]
      */
     String[] queues();
@@ -60,9 +60,9 @@ public @interface Worker {
 
     /**
      * Listener class that listens to worker events.
-     * 
+     * <p>
      * Note: This is Guice managed Listener and must be defined appropriately.
-     * 
+     *
      * @return the class<? extends worker listener>
      */
     Class<? extends WorkerListener> listener() default WorkerListener.class;
@@ -73,22 +73,20 @@ public @interface Worker {
      * with a component using the component's <code>addDefaultWorkerListener<code> method. When
      * the defaultWorker event occurs, that object's appropriate
      * method is invoked.
-     * 
+     *
      * @see DefaultWorkerEvent
      */
     static final class DefaultWorkerListener implements WorkerListener {
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see net.greghaines.jesque.worker.WorkerListener#onEvent(net.greghaines.jesque.worker.WorkerEvent,
          * net.greghaines.jesque.worker.Worker, java.lang.String, net.greghaines.jesque.Job, java.lang.Object,
          * java.lang.Object, java.lang.Exception)
          */
-        @Override
-        public void onEvent(WorkerEvent event, net.greghaines.jesque.worker.Worker worker, String queue,
-                Job job, Object runner, Object result, Exception ex) {
-            // Do Nothing
+        public void onEvent(WorkerEvent workerEvent, net.greghaines.jesque.worker.Worker worker, String s, Job job, Object o, Object o1, Throwable throwable) {
+
         }
     }
 }
