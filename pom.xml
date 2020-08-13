@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.strumsoft.commons.jesque</groupId>
+    <groupId>com.webonise.commons.jesque</groupId>
     <artifactId>jesque-guice</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>jesque-guice</name>
     <description>Guice bindings for jesque workers</description>
-    <url>https://github.com/anismiles/jesque-guice</url>
+    <url>https://github.com/naveen-webonise/jesque-guice</url>
     <prerequisites>
         <maven>2.2.1</maven>
     </prerequisites>
@@ -24,16 +24,8 @@
     </licenses>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/anismiles/jesque-guice/issues</url>
+        <url>https://github.com/naveen-webonise/jesque-guice/issues</url>
     </issueManagement>
-    <developers>
-        <developer>
-            <id>anismiles</id>
-            <name>Animesh Kumar</name>
-            <email>animesh@strumsoft.com</email>
-            <url>http://animesh.org/</url>
-        </developer>
-    </developers>
     <dependencies>
         <!-- Logging -->
         <dependency>
