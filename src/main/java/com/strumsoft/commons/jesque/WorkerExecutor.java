@@ -4,7 +4,7 @@ import net.greghaines.jesque.worker.Worker;
 
 /**
  * WorkerExecutor interface
- * 
+ *
  * @author "Animesh Kumar <animesh@strumsoft.com>"
  */
 public interface WorkerExecutor {

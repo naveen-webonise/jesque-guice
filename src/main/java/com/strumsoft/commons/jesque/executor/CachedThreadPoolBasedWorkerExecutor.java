@@ -1,14 +1,12 @@
 package com.strumsoft.commons.jesque.executor;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
+import com.strumsoft.commons.jesque.WorkerExecutor;
 import net.greghaines.jesque.worker.Worker;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.strumsoft.commons.jesque.WorkerExecutor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * CachedThreadPoolBasedWorkerExecutor that submits each workers to an ExecutorService.
@@ -16,10 +14,14 @@ import com.strumsoft.commons.jesque.WorkerExecutor;
  * @author "Animesh Kumar <animesh@strumsoft.com>"
  */
 public class CachedThreadPoolBasedWorkerExecutor implements WorkerExecutor {
-    /** The Constant LOG. */
+    /**
+     * The Constant LOG.
+     */
     private static final Logger LOG = LoggerFactory.getLogger(CachedThreadPoolBasedWorkerExecutor.class);
 
-    /** The executor. */
+    /**
+     * The executor.
+     */
     private final ExecutorService executor;
 
     /**
@@ -32,12 +34,11 @@ public class CachedThreadPoolBasedWorkerExecutor implements WorkerExecutor {
     /* (non-Javadoc)
      * @see com.strumsoft.commons.jesque.WorkerExecutor#execute(net.greghaines.jesque.worker.Worker)
      */
-    @Override
     public void execute(Worker worker) {
         LOG.info("Submitting worker={} to executor", worker);
         executor.submit(worker);
     }
-    
+
     // @preDestroy
     public void preDestroy() {
         if (null != executor) {
